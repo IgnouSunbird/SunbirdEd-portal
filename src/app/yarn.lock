@@ -161,9 +161,9 @@
     joi "^13.4.0"
     lodash "^4.17.10"
 
-"@project-sunbird/logger@^0.0.9":
+"@project-sunbird/logger@0.0.11":
   version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@project-sunbird/logger/-/logger-0.0.9.tgz#709b4a4dcfc59fb19f7e1ffb218136fa55b866ea"
+  resolved "https://registry.yarnpkg.com/@project-sunbird/logger/-/logger-0.0.11.tgz#709b4a4dcfc59fb19f7e1ffb218136fa55b866ea"
   integrity sha512-5DLFvgPBa5ffeavwY7fsXQsmZ+CM9rNC3Qmbh9pa4Ygfm10fhucijG0Aqku6WN9i5EeZXLoIOhDGr2fYjKsUqg==
   dependencies:
     "@types/lodash" "^4.14.149"
