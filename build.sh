@@ -20,7 +20,7 @@ then
 fi
 
 commit_hash=$(git rev-parse --short HEAD)
-nvm install 12.16.1 # same is used in client and server
+nvm install v12.22.8 # same is used in client and server
 
 cd src/app
 mkdir -p app_dist/ # this folder should be created prior server and client build
@@ -45,7 +45,7 @@ build_client_cdn(){
 # function to run client build
 build_client(){
     echo "Building client in background"
-    nvm use 12.16.1
+    nvm use 12.22.8
     cd client
     echo "starting client yarn install"
     yarn install --no-progress --production=true
