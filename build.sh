@@ -47,9 +47,10 @@ build_client(){
     echo "Building client in background"
     nvm use 14.15.5
     cd client
-    yarn cache clean
+    npm cache clean –force
     echo "starting client yarn install"
     yarn install --no-progress --production=true
+    npm rebuild canvas --update-binary
     echo "completed client yarn install"
     if [ $buildDockerImage == true ]
     then
@@ -70,9 +71,10 @@ build_server(){
     cp -R libs helpers proxy resourcebundles package.json framework.config.js sunbird-plugins routes constants controllers server.js ./../../Dockerfile app_dist
     cd app_dist
     nvm use 14.15.5
-    yarn cache clean
+    npm cache clean –force
     echo "starting server yarn install"
     yarn install --no-progress --production=true
+    npm rebuild canvas --update-binary
     echo "completed server yarn install"
     node helpers/resourceBundles/build.js -task="phraseAppPull"
 }
