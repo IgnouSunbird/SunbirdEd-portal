@@ -1,5 +1,5 @@
 # Dockerfile for the player setup
-FROM node:12.22.8-slim
+FROM node:14.15.5-slim
 RUN useradd -u 1001 -md /home/sunbird sunbird
 WORKDIR /home/sunbird
 COPY --chown=sunbird . /home/sunbird/app_dist/
