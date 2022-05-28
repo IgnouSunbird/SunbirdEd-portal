@@ -20,7 +20,7 @@ then
 fi
 
 commit_hash=$(git rev-parse --short HEAD)
-nvm install v12.22.8 # same is used in client and server
+nvm install v14.15.5 # same is used in client and server
 
 cd src/app
 mkdir -p app_dist/ # this folder should be created prior server and client build
@@ -45,7 +45,7 @@ build_client_cdn(){
 # function to run client build
 build_client(){
     echo "Building client in background"
-    nvm use 12.22.8
+    nvm use 14.15.5
     cd client
     echo "starting client yarn install"
     yarn install --no-progress --production=true
@@ -68,7 +68,7 @@ build_server(){
     echo "copying requied files to app_dist"
     cp -R libs helpers proxy resourcebundles package.json framework.config.js sunbird-plugins routes constants controllers server.js ./../../Dockerfile app_dist
     cd app_dist
-    nvm use 12.22.8
+    nvm use 14.15.5
     echo "starting server yarn install"
     yarn install --no-progress --production=true
     echo "completed server yarn install"
