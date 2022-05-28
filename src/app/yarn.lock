@@ -1261,7 +1261,7 @@ camelize@1.0.0:
   resolved "https://registry.yarnpkg.com/camelize/-/camelize-1.0.0.tgz#164a5483e630fa4321e5af07020e531831b2609b"
   integrity sha1-FkpUg+Yw+kMh5a8HAg5TGDGyYJs=
 
-canvas@^2.0.0-alpha.13:
+canvas@^2.6.1:
   version "2.8.0"
   resolved "https://registry.yarnpkg.com/canvas/-/canvas-2.8.0.tgz#f99ca7f25e6e26686661ffa4fec1239bbef74461"
   integrity sha512-gLTi17X8WY9Cf5GZ2Yns8T5lfBOcGgFehDFb+JQwDqdOoBOcECS9ZWMEAqMSVcMYwXD659J8NyzjRY/2aE+C2Q==
@@ -7273,7 +7273,7 @@ svg2img@0.6.1:
   dependencies:
     atob "^2.0.0"
     btoa "^1.1.2"
-    canvas "^2.0.0-alpha.13"
+    canvas "^2.6.1"
     canvg "^1.5.3"
 
 "symbol-tree@>= 3.1.0 < 4.0.0":
