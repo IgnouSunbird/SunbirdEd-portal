@@ -47,6 +47,7 @@ build_client(){
     echo "Building client in background"
     nvm use 14.15.5
     cd client
+    yarn cache clean
     echo "starting client yarn install"
     yarn install --no-progress --production=true
     echo "completed client yarn install"
@@ -69,6 +70,7 @@ build_server(){
     cp -R libs helpers proxy resourcebundles package.json framework.config.js sunbird-plugins routes constants controllers server.js ./../../Dockerfile app_dist
     cd app_dist
     nvm use 14.15.5
+    yarn cache clean
     echo "starting server yarn install"
     yarn install --no-progress --production=true
     echo "completed server yarn install"
