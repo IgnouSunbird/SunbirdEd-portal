@@ -3,8 +3,8 @@ const env = process.env
 const fs = require('fs')
 const packageObj = JSON.parse(fs.readFileSync('package.json', 'utf8'))
 
-const __envIn = 'dev';
-// const __envIn = 'staging';
+//const __envIn = 'dev';
+ const __envIn = 'staging';
 // const __envIn = 'preprod';
 // const __envIn = 'loadtest';
 /**
@@ -331,7 +331,7 @@ let stagingEnvVariables = {
 
 
   PHRASE_APP: {
-    phrase_authToken: env.sunbird_phraseApp_token || '',
+    phrase_authToken: env.sunbird_phraseApp_token || 'zz',
     phrase_project: env.phrase_project || 'DIKSHA Portal,Sunbird Creation',
     phrase_locale: env.phrase_locale || ['en-IN', 'bn-IN', 'hi-IN', 'kn-IN', 'mr-IN', 'ur-IN', 'te-IN', 'ta-IN'],
     phrase_fileformat: env.phrase_fileformat || 'json'
@@ -363,7 +363,7 @@ let stagingEnvVariables = {
   sunbird_logged_default_token: env.sunbird_logged_default_token || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJNU3JJQWFweDNKQjhHTFZURFRYVmVXaDk2amlFdmdadiJ9.E7ylGNnUjA-W4hXd6axn0KYBFToKGtpu52ziq43NYQc'
 }
 //stagingEnvVariables.PORTAL_CASSANDRA_URLS = ['localhost:9042']
- stagingEnvVariables.PORTAL_CASSANDRA_URLS = (env.sunbird_cassandra_urls && env.sunbird_cassandra_urls !== '') ? env.sunbird_cassandra_urls.split(',') : ['localhost']
+ stagingEnvVariables.PORTAL_CASSANDRA_URLS = (env.sunbird_cassandra_urls && env.sunbird_cassandra_urls !== '') ? env.sunbird_cassandra_urls.split(',') : ['10.1.0.7']
 module.exports = stagingEnvVariables
 
 
