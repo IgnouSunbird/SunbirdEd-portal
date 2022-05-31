@@ -162,9 +162,9 @@
     lodash "^4.17.10"
 
 "@project-sunbird/logger@0.0.11":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@project-sunbird/logger/-/logger-0.0.11.tgz#709b4a4dcfc59fb19f7e1ffb218136fa55b866ea"
-  integrity sha512-5DLFvgPBa5ffeavwY7fsXQsmZ+CM9rNC3Qmbh9pa4Ygfm10fhucijG0Aqku6WN9i5EeZXLoIOhDGr2fYjKsUqg==
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@project-sunbird/logger/-/logger-0.0.11.tgz#f807378b1ff43f9b3fe299c49123d820124ac1dc"
+  integrity sha512-otVKFXuPGoMtaCllA7JPPU6b6/ThQrcJQzE6Ktzwp5Uvlft7c9JDfUk3aXPdS/P2A2/40I9VVIPEYhTSzav+xw==
   dependencies:
     "@types/lodash" "^4.14.149"
     "@types/node" "^13.9.0"
@@ -7273,7 +7273,7 @@ svg2img@0.6.1:
   dependencies:
     atob "^2.0.0"
     btoa "^1.1.2"
-    canvas "^2.6.1"
+    canvas "^2.0.0-alpha.13"
     canvg "^1.5.3"
 
 "symbol-tree@>= 3.1.0 < 4.0.0":

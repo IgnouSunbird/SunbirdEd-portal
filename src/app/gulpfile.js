@@ -3,7 +3,7 @@ const rename = require('gulp-rename')
 
 
 gulp.task('update:index:file', () => {
-  return gulp.src('./dist/index.html')
+  return gulp.src('./dist/index.html', { read: false, allowEmpty: true })
     .pipe(rename('index.ejs'))
     .pipe(gulp.dest('./dist'))
 })

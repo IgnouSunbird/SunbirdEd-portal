@@ -3,8 +3,8 @@ const env = process.env
 const fs = require('fs')
 const packageObj = JSON.parse(fs.readFileSync('package.json', 'utf8'))
 
-// const __envIn = 'dev';
-const __envIn = 'staging';
+const __envIn = 'dev';
+// const __envIn = 'staging';
 // const __envIn = 'preprod';
 // const __envIn = 'loadtest';
 /**
@@ -22,7 +22,7 @@ let devEnvVariables = {
     secret: env.sunbird_trampoline_desktop_keycloak_secret || ''
   },
   discussion_forum_token: env.discussion_forum_token || 'a4838b88-6a04-4293-a504-245862cad404',
-  discussions_middleware: env.discussions_middleware || 'https://staging.sunbirded.org/discussions/api',
+  discussions_middleware: env.discussions_middleware || 'http://disussionsmw-service:3002/discussion',
   TRACE_ID_ENABLED: env.isTraceEnabled || true,
   KEYCLOAK_GOOGLE_DESKTOP_CLIENT: {
     clientId: env.sunbird_google_desktop_keycloak_client_id || 'zz',
@@ -149,13 +149,13 @@ let devEnvVariables = {
   sunbird_kid_public_key_base_path: env.sunbird_kid_public_key_base_path || '/keys/',
   // discussion forum 
   discussion_forum_token: env.discussion_forum_token || 'a4838b88-6a04-4293-a504-245862cad404',
-  discussions_middleware: env.discussions_middleware || 'https://staging.sunbirded.org/discussions/api',
+  discussions_middleware: env.discussions_middleware || 'http://disussionsmw-service:3002/discussion',
 
   PORTAL_SESSION_STORE_TYPE: env.sunbird_session_store_type || 'in-memory',
   // PORTAL_SESSION_STORE_TYPE: env.sunbird_session_store_type || 'cassandra',
   // PORTAL_SESSION_STORE_TYPE: env.sunbird_session_store_type || 'redis',
   PORTAL_REDIS_TYPE: env.sunbird_redis_type || 'standalone',
-  PORTAL_API_WHITELIST_CHECK: env.sunbird_portal_api_whitelist || 'false',
+  PORTAL_API_WHITELIST_CHECK: env.sunbird_portal_api_whitelist || 'true',
   // PORTAL_REDIS_URL: env.sunbird_redis_urls || 'sunbird-dev-redis.redis.cache.windows.net',
   PORTAL_REDIS_URL: env.sunbird_redis_urls || 'sunbird-dev-redis.redis.cache.windows.net',
   PORTAL_REDIS_PORT: env.sunbird_redis_port || 6380,
@@ -213,8 +213,7 @@ let stagingEnvVariables = {
   },
   // discussion forum 
   discussion_forum_token: env.discussion_forum_token || 'a4838b88-6a04-4293-a504-245862cad404',
-  // discussions_middleware: env.discussions_middleware || 'https://staging.sunbirded.org/discussions/api',
-  discussions_middleware: env.discussions_middleware || 'http://localhost:3002',
+  discussions_middleware: env.discussions_middleware || 'http://disussionsmw-service:3002/discussion',
   sunbird_instance_name: env.sunbird_instance || 'Sunbird',
   sunbird_device_api: 'https://staging.sunbirded.org/api/',
   sunbird_portal_base_url: 'https://staging.sunbirded.org',
@@ -330,9 +329,6 @@ let stagingEnvVariables = {
   // sunbird_session_ttl: parseInt(600000),
   PORTAL_CASSANDRA_REPLICATION_STRATEGY: '{"class":"SimpleStrategy","replication_factor":1}',
 
-  // Add below variable for Apple Login
-  APPLE_SIGNIN_KEY_URL: "https://appleid.apple.com/auth/keys",
-
 
   PHRASE_APP: {
     phrase_authToken: env.sunbird_phraseApp_token || '',
@@ -340,12 +336,12 @@ let stagingEnvVariables = {
     phrase_locale: env.phrase_locale || ['en-IN', 'bn-IN', 'hi-IN', 'kn-IN', 'mr-IN', 'ur-IN', 'te-IN', 'ta-IN'],
     phrase_fileformat: env.phrase_fileformat || 'json'
   },
-  KONG_DEVICE_REGISTER_TOKEN: env.sunbird_kong_device_register || 'true',
+  KONG_DEVICE_REGISTER_TOKEN: env.sunbird_kong_device_register || 'false',
   KONG_DEVICE_REGISTER_ANONYMOUS_TOKEN: env.sunbird_kong_device_register_anonymous || 'false',
 
   KONG_DEVICE_REGISTER_AUTH_TOKEN: env.sunbird_kong_device_register_token || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJodEsyTUNWb1hNdjZPeFY0UE1RWnBia3MzNmlXY1d5aCJ9.oLpRBmf6u_2oqcrS3cxL9zr8pBQd62EtVORDOqvNfEU',
   PORTAL_SESSION_STORE_TYPE: env.sunbird_session_store_type || 'in-memory',
-  // PORTAL_SESSION_STORE_TYPE: env.sunbird_session_store_type || 'cassandra',
+  //PORTAL_SESSION_STORE_TYPE: env.sunbird_session_store_type || 'cassandra',
   // PORTAL_SESSION_STORE_TYPE: env.sunbird_session_store_type || 'redis',
   PORTAL_REDIS_TYPE: env.sunbird_redis_type || 'cluster',
   PORTAL_API_WHITELIST_CHECK: env.sunbird_portal_api_whitelist || 'false',
@@ -366,8 +362,8 @@ let stagingEnvVariables = {
   // Fallback token for device register API for `logged` users
   sunbird_logged_default_token: env.sunbird_logged_default_token || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJNU3JJQWFweDNKQjhHTFZURFRYVmVXaDk2amlFdmdadiJ9.E7ylGNnUjA-W4hXd6axn0KYBFToKGtpu52ziq43NYQc'
 }
-// stagingEnvVariables.PORTAL_CASSANDRA_URLS = ['localhost:9042']
-stagingEnvVariables.PORTAL_CASSANDRA_URLS = (env.sunbird_cassandra_urls && env.sunbird_cassandra_urls !== '') ? env.sunbird_cassandra_urls.split(',') : ['localhost']
+//stagingEnvVariables.PORTAL_CASSANDRA_URLS = ['localhost:9042']
+ stagingEnvVariables.PORTAL_CASSANDRA_URLS = (env.sunbird_cassandra_urls && env.sunbird_cassandra_urls !== '') ? env.sunbird_cassandra_urls.split(',') : ['localhost']
 module.exports = stagingEnvVariables
 
 
@@ -380,9 +376,3 @@ if (__envIn == 'dev') {
 } else if (__envIn == 'preprod') {
   module.exports = preprodEnvVariables
 }
-
-// export sunbird_instance="sunbird"
-// export sunbird_environment="dev"
-// export sunbird_default_tenant="tn"
-// export sunbird_ext_plugin_url="http://localhost:3000/plugin/"
-// export sunbird_default_channel="tn"
